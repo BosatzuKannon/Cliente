@@ -1,0 +1,55 @@
+// color del preloader
+.swal2-loader {
+  border-color: #ca1251 transparent #ca1251 transparent !important;
+}
+
+.swal2-styled.swal2-confirm {
+  background-color: #21252900 !important;
+  border: solid 2px #929292  !important
+}
+
+.swal2-popup .swal2-styled:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+.swal2-popup-preloader {
+  background: #212529 !important;
+  // background: #424242 !important;
+  border: solid 3px #3c3c3c !important;
+}
+
+.swal2-title-preloader {
+  font-size: 16px !important;
+  color: white !important;
+  text-transform: uppercase !important;
+}
+
+.swal2-content-preloader {
+  text-align: center !important;
+  color: #bbbbbb !important;
+  font-size: 16px !important;
+}
+
+
+.swal2-popup-custom {
+  font-size: 13px !important;
+  background: #212529 !important;
+  border: solid 3px #3c3c3c !important;
+}
+
+.swal2-title-custom {
+  font-size: 15px !important;
+  color: white !important;
+}
+
+.swal2-content-custom {
+  text-align: justify !important;
+  color: #bbbbbb  !important;
+}
+
+
+.swal2-icon {
+  margin: 0.25em auto 0.875em !important;
+}

@@ -1,0 +1,77 @@
+@media screen and (max-width: 40em) {
+  .p-datatable-responsive .p-datatable-tbody>tr>td {
+    text-align: left !important;
+  }
+}
+
+.p-link:focus {
+  box-shadow: none !important;
+}
+
+
+/* Para los files */
+.miFileUp .p-fileupload .p-fileupload-content {
+  font-size: 13px !important;
+  padding: 0 !important;
+
+  background: #303030 !important;
+  border: 1px solid #858585 !important;
+  color: #ffffff !important;
+}
+
+
+.miFileUp .p-fileupload .p-fileupload-buttonbar {
+  padding: 8px 12px 8px 12px !important;
+
+  background: #303030 !important;
+  border: 1px solid #858585 !important;
+}
+
+.miFileUp .p-fileupload .p-fileupload-buttonbar .p-button {
+  font-size: 13px !important;
+  background: #303030 !important;
+  border: 1px solid #ca1251 !important;
+}
+
+.miFileUp .p-fileupload .p-fileupload-buttonbar .p-button:hover {
+  background: #000000 !important;
+  border: 1px solid #000000 !important;
+}
+
+.miFileUp .p-fileupload .p-fileupload-buttonbar .p-button:focus {
+  box-shadow: none !important;
+}
+
+.p-fileupload .p-progressbar {
+  height: 0px !important;
+}
+
+// file upload en masa
+.miFileUp2 .p-fileupload .p-fileupload-content {
+  font-size: 13px !important;
+  background: #303030 !important;
+  border: 1px solid #858585 !important;
+  color: #ffffff !important;
+}
+
+.miFileUp2 .p-fileupload .p-fileupload-buttonbar {
+  padding: 8px 12px 8px 12px !important;
+  background: #303030 !important;
+  border: 1px solid #858585 !important;
+}
+
+.miFileUp2 .p-fileupload .p-fileupload-buttonbar .p-button {
+  font-size: 13px !important;
+  background: #303030 !important;
+  border: 1px solid #ca1251 !important;
+  margin-top: 5px !important;
+}
+
+.miFileUp2 .p-fileupload .p-fileupload-buttonbar .p-button:hover {
+  background: #000000 !important;
+  border: 1px solid #000000 !important;
+}
+
+.miFileUp2 .p-fileupload .p-fileupload-buttonbar .p-button:focus {
+  box-shadow: none !important;
+}

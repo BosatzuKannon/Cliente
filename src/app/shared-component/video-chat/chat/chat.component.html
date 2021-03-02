@@ -1,0 +1,25 @@
+<div id="scrollchat" class="chat-mensajes large-2">
+
+  <div class="miArletChat alert alert-secondary" role="alert" *ngFor="let msg of mensajes">
+    <div>
+      <strong [ngStyle]="{'color': msg.envia =='M' ? 'rgb(179 0 60)':'rgb(215 215 215)'}">
+        {{ msg.de }}:
+      </strong>
+      <strong class="itemStrongchat" [ngStyle]="{'color': msg.envia =='M' ? 'rgb(179 0 60)':'rgb(215 215 215)'}">
+        {{ msg.cuerpo }}
+      </strong>
+    </div>
+
+  </div>
+
+
+</div>
+<br>
+
+<form (ngSubmit)="enviar()">
+  <mat-form-field>
+    <mat-label>Mensaje</mat-label>
+    <input matInput [(ngModel)]="texto" name="texto" autofocus autocomplete="off">
+  </mat-form-field>
+
+</form>

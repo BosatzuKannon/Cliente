@@ -1,0 +1,332 @@
+<mat-card class="cadNegra">
+  <mat-card-title>Configure su cuenta de modelo</mat-card-title>
+  <mat-card-subtitle>Ingrese al mejor contenido online para adulto</mat-card-subtitle>
+
+  <mat-card-content>
+    <br>
+    <mat-tab-group #MatTabGroup mat-align-tabs="center" (selectedTabChange)="onTabChanged($event)">
+
+      <mat-tab label="Ajustes de perfil">
+        <form [formGroup]='configUsuarioForm' #formConfigUsuario="ngForm" (ngSubmit)="pasarIdentificacion()"
+          autocomplete="off" novalidate>
+          <br>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <mat-form-field>
+              <mat-label>Me interesa</mat-label>
+              <mat-select formControlName="meinteresa" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let item of parametrosRegistro?.intereses" [value]="item.id">
+                  {{item.descripcion}}
+                </mat-option>
+              </mat-select>
+
+              <mat-error *ngIf="f.meinteresa.errors">Requerido
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <mat-form-field>
+              <mat-label>Tipo de cuerpo</mat-label>
+              <mat-select formControlName="tipoCuerpo" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let item of parametrosRegistro?.tipoCuerpo" [value]="item.id">
+                  {{item.descripcion}}
+                </mat-option>
+              </mat-select>
+
+              <mat-error *ngIf="f.meinteresa.errors">Requerido
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <mat-form-field>
+              <mat-label>Etnia</mat-label>
+              <mat-select formControlName="etnia" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let item of parametrosRegistro?.etnia" [value]="item.id">
+                  {{item.descripcion}}
+                </mat-option>
+              </mat-select>
+
+              <mat-error *ngIf="f.meinteresa.errors">Requerido
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <mat-form-field>
+              <mat-label>Color cabello (Opcional)</mat-label>
+              <mat-select formControlName="colorCabello">
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let item of parametrosRegistro?.colorCabello" [value]="item.id">
+                  {{item.descripcion}}
+                </mat-option>
+              </mat-select>
+
+              <mat-error *ngIf="f.meinteresa.errors">Requerido
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <mat-form-field>
+              <mat-label>Color ojos (Opcional)</mat-label>
+              <mat-select formControlName="colorOjos">
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let item of parametrosRegistro?.colorOjos" [value]="item.id">
+                  {{item.descripcion}}
+                </mat-option>
+              </mat-select>
+
+              <mat-error *ngIf="f.meinteresa.errors">Requerido
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <mat-form-field>
+              <mat-label>Subcultura (Opcional)</mat-label>
+              <mat-select formControlName="subCultura">
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let item of parametrosRegistro?.subCultura" [value]="item.id">
+                  {{item.descripcion}}
+                </mat-option>
+              </mat-select>
+
+              <mat-error *ngIf="f.meinteresa.errors">Requerido
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <mat-form-field>
+              <mat-label>Acerca de mi (Opcional)</mat-label>
+              <textarea matInput formControlName="acercaDeMi"></textarea>
+              <mat-error *ngIf="f.acercaDeMi.errors">Requerido
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <br>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+
+            <p-fileUpload class="miFileUp" #miFileUpload_IMAGEN_PERFIL name="miFileUpload_IMAGEN_PERFIL[]"
+              customUpload="true" accept="image/*" customUpload="true" uploadLabel="Procesar"
+              chooseLabel="Foto de perfil" [showCancelButton]="false" [showUploadButton]="false"
+              invalidFileTypeMessageSummary="Error en el tipo de archivo:"
+              invalidFileTypeMessageDetail="Solo se permiten archivos de imagen">
+
+              <ng-template let-file pTemplate="file">
+
+                <div class="p-fileupload-row ng-star-inserted">
+                  <div>{{file.name}}</div>
+                  <div>
+                    <button type="button" (click)="miFileUpload_IMAGEN_PERFIL.clear()" class="btnTabla"
+                      pTooltip="Eliminar" tooltipPosition="top">
+                      <img src="assets/img/iconos/eliminar.svg" class="icono_opciones">
+                    </button>
+                  </div>
+                </div>
+              </ng-template>
+            </p-fileUpload>
+
+            <mat-error *ngIf="formConfigUsuario.submitted && miFileUpload_IMAGEN_PERFIL.files.length == 0">
+              <br>
+              Adjunte su foto de perfil
+            </mat-error>
+          </div>
+          <br>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+
+            <p-fileUpload class="miFileUp" #miFileUpload_IMAGEN_PORTADA name="miFileUpload_IMAGEN_PORTADA[]"
+              customUpload="true" accept="image/*" customUpload="true" uploadLabel="Procesar"
+              chooseLabel="Foto de portada" [showCancelButton]="false" [showUploadButton]="false"
+              invalidFileTypeMessageSummary="Error en el tipo de archivo:"
+              invalidFileTypeMessageDetail="Solo se permiten archivos de imagen">
+
+              <ng-template let-file pTemplate="file">
+
+                <div class="p-fileupload-row ng-star-inserted">
+                  <div>{{file.name}}</div>
+                  <div>
+                    <button type="button" (click)="miFileUpload_IMAGEN_PORTADA.clear()" class="btnTabla"
+                      pTooltip="Eliminar" tooltipPosition="top">
+                      <img src="{{parametrosApp.ApiUrl}}/icons/eliminar.svg" class="icono_opciones">
+                    </button>
+                  </div>
+                </div>
+              </ng-template>
+            </p-fileUpload>
+
+            <mat-error *ngIf="formConfigUsuario.submitted && miFileUpload_IMAGEN_PORTADA.files.length == 0">
+              <br>
+              Adjunte su foto de portada
+            </mat-error>
+
+          </div>
+
+          <br>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <button mat-raised-button color="primary" style="width: 100%;" type="submit">Siguiente</button>
+          </div>
+        </form>
+      </mat-tab>
+
+      <mat-tab label="Identificación">
+        <form [formGroup]='personalesUsuarioForm' #formPersonalesUsuario="ngForm" (ngSubmit)="confirmarGuardado()"
+          autocomplete="off" novalidate>
+          <br>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <mat-form-field appearance="legacy">
+              <mat-label>Nombres</mat-label>
+              <input matInput formControlName="nombres" placeholder="Tal y como esta escrito en tus documentos oficiales." uppercase required>
+              <mat-error *ngIf="fp.nombres.errors">Requerido</mat-error>
+            </mat-form-field>
+          </div>
+
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <mat-form-field appearance="legacy">
+              <mat-label>Apellidos</mat-label>
+              <input matInput formControlName="apellidos" placeholder="Tal y como esta escrito en tus documentos oficiales." uppercase required>
+              <mat-error *ngIf="fp.apellidos.errors">Requerido</mat-error>
+            </mat-form-field>
+          </div>
+
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <mat-form-field>
+              <mat-label>Fecha nacimiento</mat-label>
+              <input matInput [matDatepicker]="pickerfi" placeholder="dd/mm/aaaa" required autocomplete="off"
+                formControlName="fechaNacimiento">
+              <mat-datepicker touchUi="true" #pickerfi disabled="false"></mat-datepicker>
+              <mat-datepicker-toggle matSuffix [for]="pickerfi"></mat-datepicker-toggle>
+              <mat-error *ngIf="fp.fechaNacimiento.errors">Requerido</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <mat-form-field>
+              <mat-label>Sexo</mat-label>
+              <mat-select formControlName="sexo" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let item of parametrosRegistro?.sexo" [value]="item.id">
+                  {{item.descripcion}}
+                </mat-option>
+              </mat-select>
+
+              <mat-error *ngIf="f.meinteresa.errors">Requerido
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <mat-form-field appearance="legacy">
+              <mat-label>Número documento de identidad</mat-label>
+              <input matInput formControlName="identificacion" required pattern="^[0-9]+">
+              <mat-error *ngIf="fp.identificacion.errors">Solo números sin puntos, comas o espacios en blanco
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <br>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <p-fileUpload class="miFileUp" #miFileUpload_FOTO_FRONTAL_DOCUMENTO
+              name="miFileUpload_FOTO_FRONTAL_DOCUMENTO[]" customUpload="true" accept="image/*" customUpload="true"
+              uploadLabel="Procesar" chooseLabel="Foto frontal del documento" [showCancelButton]="false"
+              [showUploadButton]="false" invalidFileTypeMessageSummary="Error en el tipo de archivo:"
+              invalidFileTypeMessageDetail="Solo se permiten archivos de imagen">
+
+              <ng-template let-file pTemplate="file">
+
+                <div class="p-fileupload-row ng-star-inserted">
+                  <div>{{file.name}}</div>
+                  <div>
+                    <button type="button" (click)="miFileUpload_FOTO_FRONTAL_DOCUMENTO.clear()" class="btnTabla"
+                      pTooltip="Eliminar" tooltipPosition="top">
+                      <img src="{{parametrosApp.ApiUrl}}/icons/eliminar.svg" class="icono_opciones">
+                    </button>
+                  </div>
+                </div>
+              </ng-template>
+            </p-fileUpload>
+
+            <mat-error *ngIf="formPersonalesUsuario.submitted && miFileUpload_FOTO_FRONTAL_DOCUMENTO.files.length == 0">
+              <br>
+              Adjunte la foto frontal del documento de identidad
+            </mat-error>
+
+          </div>
+          <br>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <p-fileUpload class="miFileUp" #miFileUpload_FOTO_TRASERA_DOCUMENTO
+              name="miFileUpload_FOTO_TRASERA_DOCUMENTO[]" customUpload="true" accept="image/*" customUpload="true"
+              uploadLabel="Procesar" chooseLabel="Foto trasera del documento" [showCancelButton]="false"
+              [showUploadButton]="false" invalidFileTypeMessageSummary="Error en el tipo de archivo:"
+              invalidFileTypeMessageDetail="Solo se permiten archivos de imagen">
+
+              <ng-template let-file pTemplate="file">
+
+                <div class="p-fileupload-row ng-star-inserted">
+                  <div>{{file.name}}</div>
+                  <div>
+                    <button type="button" (click)="miFileUpload_FOTO_TRASERA_DOCUMENTO.clear()" class="btnTabla"
+                      pTooltip="Eliminar" tooltipPosition="top">
+                      <img src="{{parametrosApp.ApiUrl}}/icons/eliminar.svg" class="icono_opciones">
+                    </button>
+                  </div>
+                </div>
+              </ng-template>
+            </p-fileUpload>
+
+            <mat-error *ngIf="formPersonalesUsuario.submitted && miFileUpload_FOTO_TRASERA_DOCUMENTO.files.length == 0">
+              <br>
+              Adjunte la foto trasera del documento de identidad
+            </mat-error>
+
+          </div>
+          <br>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <p-fileUpload class="miFileUp" #miFileUpload_FOTO_SOTENIDA
+              name="miFileUpload_FOTO_SOTENIDA[]" customUpload="true" accept="image/*" customUpload="true"
+              uploadLabel="Procesar" chooseLabel="Foto sujetando el documento y una nota escrita a mano con tu nombre de usuario y fecha actual" [showCancelButton]="false"
+              [showUploadButton]="false" invalidFileTypeMessageSummary="Error en el tipo de archivo:"
+              invalidFileTypeMessageDetail="Solo se permiten archivos de imagen">
+
+              <ng-template let-file pTemplate="file">
+
+                <div class="p-fileupload-row ng-star-inserted">
+                  <div>{{file.name}}</div>
+                  <div>
+                    <button type="button" (click)="miFileUpload_FOTO_SOTENIDA.clear()" class="btnTabla"
+                      pTooltip="Eliminar" tooltipPosition="top">
+                      <img src="{{parametrosApp.ApiUrl}}/icons/eliminar.svg" class="icono_opciones">
+                    </button>
+                  </div>
+                </div>
+              </ng-template>
+            </p-fileUpload>
+
+            <mat-error *ngIf="formPersonalesUsuario.submitted && miFileUpload_FOTO_SOTENIDA.files.length == 0">
+              <br>
+              Adjunte la foto sujetando su documento con la nota.
+            </mat-error>
+
+          </div>
+          <br>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <button mat-raised-button color="primary" style="width: 100%;" type="submit">Guardar</button>
+          </div>
+        </form>
+      </mat-tab>
+    </mat-tab-group>
+
+
+  </mat-card-content>
+</mat-card>

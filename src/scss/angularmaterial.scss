@@ -1,0 +1,61 @@
+.cdk-global-overlay-wrapper,
+.cdk-overlay-container {
+  z-index: 99999 !important;
+}
+
+.mat-focused .mat-form-field-label {
+  // font-weight: bold !important;
+  // font-size: 18px !important;
+}
+
+.mat-form-field-label:not(.mat-form-field-empty) {
+  // font-weight: bold !important;
+  // font-size: 18px !important;
+}
+
+.mat-form-field {
+  width: 100% !important;
+
+}
+
+mat-form-field.mat-form-field {
+  font-size: 16px;
+}
+
+.mat-card-actions {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.iconinput {
+  font-size: 20px;
+}
+
+.sepBtn {
+  margin-left: 10px !important;
+}
+
+.mat-card-title {
+  font-size: 20px !important;
+}
+
+// .itemChat.mat-list-base .mat-list-item{
+//   height: 25px !important;
+// }
+
+
+mat-button-toggle-group {
+  flex-wrap: wrap !important;
+}
+
+
+
+
+.cadNegra.mat-card {
+  // background: linear-gradient(180deg, #e91e63 0%, #212121 28%) !important;
+  // background: linear-gradient(180deg, #e91e63 -10%, #303030 75px) !important;
+
+  // background: linear-gradient(164deg, #e91e63 0%, #303030 165px) !important;
+  background: linear-gradient(155deg, #e91e63 0%, #303030 100px) !important;
+
+}

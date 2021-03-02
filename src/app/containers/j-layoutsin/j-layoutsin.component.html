@@ -1,0 +1,99 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+  <div class="container">
+
+    <a class="navbar-brand" href="/">
+      <img src="{{parametrosApp.ApiUrl}}/logos/tomace_com_co_blanco_logofull.png" style="height: 30px;"
+        class="d-inline-block align-top" alt="" loading="lazy">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#">lista de chicas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">visitas VIP</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/chicas">chicas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/users">Usuarios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/administradores">administradores</a>
+        </li> -->
+
+        <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/clientes" role="button" aria-haspopup="true" aria-expanded="false">Clientes</a>
+            <div class="dropdown-menu" style="">
+              <a class="dropdown-item" href="/clientes">Pagos y recibos</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Envios</a>
+            </div>
+          </li> -->
+
+        <!-- cua do es chica -->
+        <!-- <li class="nav-item">
+            <a class="nav-link" href="/">Clientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Clientes VIP</a>
+          </li> -->
+
+
+        <!-- cuando no esta login -->
+        <li class="nav-item active">
+          <a class="nav-link" href="/servicios">Servicios<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/quienesomos">¿Quienes somos?</a>
+        </li>
+
+      </ul>
+
+      <div class="" *ngIf="user">
+        <button mat-stroked-button color="accent" [matMenuTriggerFor]="menu">
+          {{user.username}} <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+
+
+
+
+          <button mat-menu-item (click)="miCuenta()"
+            *ngIf="puedeModificarCuenta()">
+            <i class="menuIcon fa fa-cog fa-lg2"></i>
+            <span>Mi cuenta</span>
+          </button>
+          <button mat-menu-item (click)="trasmitirModelo()"
+            *ngIf="puedeTrasmitir()">
+            <i class="menuIcon fa fa-rss fa-lg2" aria-hidden="true"></i>
+            <span>Transmitir</span>
+          </button>
+          <mat-divider></mat-divider>
+          <button mat-menu-item (click)="cerrarSesion()">
+            <i class="menuIcon fa fa-sign-out fa-lg2"></i>
+            <span>Cerrar sesión</span>
+          </button>
+        </mat-menu>
+
+      </div>
+
+      <button *ngIf="!user" mat-stroked-button (click)="login()">Entrar</button>
+    </div>
+  </div>
+</nav>
+
+<div class="app-body">
+  <main class="main container">
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

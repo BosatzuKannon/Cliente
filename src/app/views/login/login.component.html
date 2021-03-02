@@ -1,0 +1,61 @@
+<div class="app-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 mx-auto vertical-center">
+        <form #frmLogin="ngForm" (ngSubmit)="login(frmLogin.valid)" autocomplete="off" novalidate>
+          <mat-card class="cadNegra">
+            <mat-card-title>Login</mat-card-title>
+            <mat-card-subtitle>Ingrese sus datos para acceder al mejor contenido online</mat-card-subtitle>
+
+            <mat-card-content>
+              <br>
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <mat-form-field>
+                    <mat-label>Usuario</mat-label>
+                    <input matInput placeholder="Ingrese su usuario o correo electrónico"
+                    [(ngModel)]="usuario.username" id="nombreUsuarioFront" name="nombreUsuarioFront"
+                      #nombreUsuarioFrontNM="ngModel" required>
+
+                    <button disabled type="button" mat-icon-button matSuffix>
+                      <i class="iconinput fa fa-user"></i>
+                    </button>
+
+                    <mat-error *ngIf="nombreUsuarioFrontNM.invalid">Requerido
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+
+                <div class="separadorInput col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <mat-form-field>
+                    <mat-label>Contraseña</mat-label>
+                    <input [type]="hide ? 'password' : 'text'" matInput [(ngModel)]="usuario.password" id="claveFront"
+                      name="claveFront" #claveFrontNM="ngModel" minlength="5" required>
+                    <button type="button" mat-icon-button matSuffix (click)="hide = !hide">
+                      <i class="iconinput {{hide ? 'fa fa-eye-slash' : 'fa fa-eye'}}"></i>
+                    </button>
+                    <mat-error *ngIf="claveFrontNM.invalid">Requerido
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <br>
+
+            </mat-card-content>
+            <mat-card-actions>
+
+              <div class="row">
+                <div class="col-4">
+                  <button mat-raised-button color="primary" type="submit">Entrar</button>
+                </div>
+                <div class="col-8 text-right">
+                  ¿Aún no tienes una cuenta? <a (click)="registro()"><strong>Crea una aqui</strong></a>
+                </div>
+              </div>
+            </mat-card-actions>
+          </mat-card>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

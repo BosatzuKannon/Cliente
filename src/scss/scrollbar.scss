@@ -1,0 +1,20 @@
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: #97083a;
+}
+
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+::-webkit-scrollbar-thumb:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del track */
+::-webkit-scrollbar-track {
+  background: #343a40;
+}

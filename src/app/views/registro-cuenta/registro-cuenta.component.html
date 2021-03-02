@@ -1,0 +1,90 @@
+<div class="app-body">
+  <div class="container">
+    <div class="row" style="justify-content: center;">
+      <div class="col-md-10" style="padding-top: 50px;">
+        <form [formGroup]='usuarioForm' #formDirective="ngForm"  (ngSubmit)="registar(formDirective)" autocomplete="off" novalidate>
+          <mat-card class="cadNegra">
+            <mat-card-title>{{tituloCard}}</mat-card-title>
+            <mat-card-subtitle>Ingrese al mejor contenido online para adulto </mat-card-subtitle>
+
+            <mat-card-content>
+              <br>
+              <div class="row mibtnClass">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+                  <mat-button-toggle-group appearance="legacy" formControlName="tipoUser"
+                    style="background: #535353 !important;" (click)="verImagen()">
+                    <mat-button-toggle value="{{tiposUsuario.default}}">Registro usuario</mat-button-toggle>
+                    <mat-button-toggle value="{{tiposUsuario.esChica}}">Registro Modelo</mat-button-toggle>
+                    <mat-button-toggle value="{{tiposUsuario.esEstudio}}">Registro estudio</mat-button-toggle>
+                  </mat-button-toggle-group>
+                </div>
+              </div>
+              <br><br>
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 datare">
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <mat-form-field>
+                      <mat-label>Nombre de usuario</mat-label>
+                      <input matInput formControlName="username" required pattern="^[a-zA-Z0-9_]{5,20}">
+
+                      <mat-error *ngIf="f.username.errors">Nombre de 5 a 20 caracteres sin espacios
+                        ni caracteres especiales
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+                    <mat-form-field>
+                      <mat-label>Correo electrónico</mat-label>
+                      <input matInput formControlName="correo" required [email]="true">
+
+                      <mat-error *ngIf="f.correo.errors">Digite un correo valido
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <br><br>
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+                    <button mat-raised-button color="primary" style="width: 100%;"
+                      type="submit">{{tituloBtnCrear}}</button>
+                  </div>
+                  <br><br>
+                </div>
+
+                <div id="contImagen" class="col-xs-12 col-sm-12 col-md-7 col-lg-7 bg {{imagen}}">
+                  <div class="animacion col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput descripciones"
+                    *ngIf="usuarioForm.get('tipoUser').value == tiposUsuario.default">
+                    <p>- Chatea con miles de modelos webcam.</p>
+                    <p>- Guarda tus modelos favoritas.</p>
+                    <p>- Hazte amigo de modelos y usuarios.</p>
+                    <p>- Premia a las modelos por sus shows.</p>
+                    <p>- Sorteo de tokens.</p>
+                  </div>
+
+                  <div class="animacion col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput descripciones"
+                    *ngIf="usuarioForm.get('tipoUser').value == tiposUsuario.esChica">
+                    <p> - Hasta 60% en ganancias.</p>
+                    <p>- 2 semanas de promoción para las nuevas modelos.</p>
+                    <p>- $24,000 en materia de dinero en concursos cada mes.</p>
+                    <p>- Protección contra el fraude.</p>
+                    <p>- Fácil bloquear cualquier país o estado.</p>
+                  </div>
+
+                  <div class="animacion col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput descripciones"
+                    *ngIf="usuarioForm.get('tipoUser').value ==tiposUsuario.esEstudio">
+                    <p>- Hasta 60% en ganancias.</p>
+                    <p>- 2 semanas de promoción para las nuevas modelos.</p>
+                    <p>- Protección contra el fraude.</p>
+                    <p> - Funciones de cámara fáciles de usar.</p>
+                    <p>- Soporte técnico amigable y servicia.</p>
+                  </div>
+
+                </div>
+              </div>
+
+            </mat-card-content>
+          </mat-card>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

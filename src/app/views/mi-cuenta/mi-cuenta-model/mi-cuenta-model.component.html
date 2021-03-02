@@ -1,0 +1,180 @@
+<mat-card class="cadNegra">
+  <mat-card-title>Mi cuenta</mat-card-title>
+  <mat-card-subtitle>Personalice sus preferencias y su galería de imágenes.</mat-card-subtitle>
+
+  <mat-card-content>
+    <br>
+    <mat-tab-group #MatTabGroup mat-align-tabs="center">
+
+      <mat-tab label="Ajustes de perfil">
+        <form [formGroup]='configUsuarioForm' #formConfigUsuario="ngForm" (ngSubmit)="guardarPreferencias()"
+          autocomplete="off" novalidate>
+          <br>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <mat-form-field>
+              <mat-label>Me interesa</mat-label>
+              <mat-select formControlName="meinteresa" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let item of parametrosRegistro?.intereses" [value]="item.id">
+                  {{item.descripcion}}
+                </mat-option>
+              </mat-select>
+
+              <mat-error *ngIf="f.meinteresa.errors">Requerido
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <mat-form-field>
+              <mat-label>Tipo de cuerpo</mat-label>
+              <mat-select formControlName="tipoCuerpo" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let item of parametrosRegistro?.tipoCuerpo" [value]="item.id">
+                  {{item.descripcion}}
+                </mat-option>
+              </mat-select>
+
+              <mat-error *ngIf="f.meinteresa.errors">Requerido
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <mat-form-field>
+              <mat-label>Etnia</mat-label>
+              <mat-select formControlName="etnia" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let item of parametrosRegistro?.etnia" [value]="item.id">
+                  {{item.descripcion}}
+                </mat-option>
+              </mat-select>
+
+              <mat-error *ngIf="f.meinteresa.errors">Requerido
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <mat-form-field>
+              <mat-label>Color cabello (Opcional)</mat-label>
+              <mat-select formControlName="colorCabello">
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let item of parametrosRegistro?.colorCabello" [value]="item.id">
+                  {{item.descripcion}}
+                </mat-option>
+              </mat-select>
+
+              <mat-error *ngIf="f.meinteresa.errors">Requerido
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <mat-form-field>
+              <mat-label>Color ojos (Opcional)</mat-label>
+              <mat-select formControlName="colorOjos">
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let item of parametrosRegistro?.colorOjos" [value]="item.id">
+                  {{item.descripcion}}
+                </mat-option>
+              </mat-select>
+
+              <mat-error *ngIf="f.meinteresa.errors">Requerido
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <mat-form-field>
+              <mat-label>Subcultura (Opcional)</mat-label>
+              <mat-select formControlName="subCultura">
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let item of parametrosRegistro?.subCultura" [value]="item.id">
+                  {{item.descripcion}}
+                </mat-option>
+              </mat-select>
+
+              <mat-error *ngIf="f.meinteresa.errors">Requerido
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <mat-form-field>
+              <mat-label>Acerca de mi (Opcional)</mat-label>
+              <textarea matInput formControlName="acercaDeMi"></textarea>
+              <mat-error *ngIf="f.acercaDeMi.errors">Requerido
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <br>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+            <button mat-raised-button color="primary" style="width: 100%;" type="submit">Guardar</button>
+          </div>
+        </form>
+      </mat-tab>
+
+      <mat-tab label="Galeria de imagenes">
+
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+
+          <p-fileUpload class="miFileUp2" #miFileUpload_IMAGEN_GALERIA name="miFileUpload_IMAGEN_GALERIA[]"
+            multiple="multiple" customUpload="true" accept="image/*" customUpload="true" uploadLabel="Guardar imagenes"
+            cancelLabel="Limpiar seleccionadas" chooseLabel="Seleccione imagen" [showCancelButton]="true"
+            [showUploadButton]="true" invalidFileTypeMessageSummary="Error en el tipo de archivo:"
+            invalidFileTypeMessageDetail="Solo se permiten archivos de imagen" (uploadHandler)="guardarImagenes()">
+
+            <ng-template let-file pTemplate="file">
+
+              <div class="p-fileupload-row ng-star-inserted">
+                <div>
+                  <img [src]="urlModificada(file.objectURL.changingThisBreaksApplicationSecurity)" width="50"
+                    class="ng-star-inserted"></div>
+                <div>{{file.name}}</div>
+                <div>
+                  <button type="button" (click)="quitarFotoLista(file)" class="btnTabla" pTooltip="Eliminar"
+                    tooltipPosition="top">
+                    <img src="assets/img/iconos/eliminar.svg" class="icono_opciones">
+                  </button>
+                </div>
+              </div>
+            </ng-template>
+
+            <ng-template pTemplate="content" let-files>
+              <div *ngIf="files.length == 0">Para agregar múltiples imágenes, arrastre las imágenes en este espacio.
+              </div>
+            </ng-template>
+          </p-fileUpload>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 separadorInput">
+
+          <br>
+
+          <!-- Grid row -->
+          <div class="gallery" id="gallery">
+            <div *ngFor="let item of  this.galeria">
+              <div class="mb-3 pics animation all 2">
+                <img class="img-fluid"
+                  src="{{this.parametrosApp.ApiUrl}}/modelos/{{infoUser._id}}/{{nombreCarpetaGaleria}}/{{item}}"
+                  alt="Card image cap">
+                <button mat-raised-button color="primary" style="width: 100%;" type="button"
+                  (click)="confirmarEliminarImagen(item)">Eliminar</button>
+              </div>
+            </div>
+          </div>
+          <!-- Grid row -->
+
+
+        </div>
+
+      </mat-tab>
+    </mat-tab-group>
+
+
+  </mat-card-content>
+</mat-card>

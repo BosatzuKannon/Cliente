@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 cardModelos" *ngFor="let item of lstModelos">
+    <mat-card>
+
+      <mat-card-title>{{item.username }}</mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+
+      <img mat-card-image src="{{this.parametrosApp.ApiUrl}}/modelos/{{item._id}}/perfil/{{item.imgPortada}}"
+        (click)="verModelo(item)">
+      <!-- <mat-card-content>
+
+      </mat-card-content> -->
+      <mat-card-actions>
+        <button mat-fab>
+          <mat-icon>favorite</mat-icon>
+        </button>
+
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+</div>

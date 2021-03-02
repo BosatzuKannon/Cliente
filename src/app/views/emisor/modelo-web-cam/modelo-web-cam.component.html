@@ -1,0 +1,52 @@
+<mat-card>
+  <mat-card-title>Sala</mat-card-title>
+  <mat-card-subtitle></mat-card-subtitle>
+
+  <mat-card-content>
+    <br>
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <button mat-mini-fab color="primary" (click)="start()" #tooltip="matTooltip" matTooltip="Iniciar camara">
+          <i class="fa fa-video-camera at 4x" aria-hidden="true"></i>
+        </button>
+        &nbsp;&nbsp;
+        <button mat-mini-fab (click)="sound()" #tooltip="matTooltip"
+          matTooltip="{{configGlobalVideo?.audio ? 'Desactivar' : 'Activar'}} sonido">
+          <i class="fa fa-microphone at 4x" aria-hidden="true" *ngIf="configGlobalVideo?.audio ? true : false"></i>
+          <i class="fa fa-microphone-slash at 4x" aria-hidden="true"
+            *ngIf="!configGlobalVideo?.audio ? true : false"></i>
+        </button>
+        &nbsp;&nbsp;
+
+        <button mat-mini-fab (click)="emitir()" #tooltip="matTooltip"
+          matTooltip="{{transmitiendo ? 'Parar transmisión' : 'Transmitir'}}">
+          <i class="fa fa-rss at 4x" aria-hidden="true"></i>
+        </button>
+
+      </div>
+    </div>
+
+    <br> <br>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <video #video class="vid" autoplay style="width: 100% !important; height: 370px;"></video>
+        <canvas #canvas class="vid" width="200" height="200" style="display: none;"></canvas>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" *ngIf="idSala != null">
+        <app-chat [idSala]="idSala" [uso]="'M'"></app-chat>
+      </div>
+    </div>
+    <br>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="row">
+      <div class="col-4">
+
+      </div>
+      <div class="col-8 text-right">
+
+      </div>
+    </div>
+  </mat-card-actions>
+</mat-card>

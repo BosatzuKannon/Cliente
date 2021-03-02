@@ -1,0 +1,204 @@
+body {
+  // margin: 0;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  // background-color: #FCFCFC;
+  background-color: rgba(0, 0, 0, .87);
+}
+
+.main .container-fluid {
+  margin-top: 80px !important;
+  // padding: 0px 15px !important;
+}
+
+.container-fluid {
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+.jumbotron {
+  // padding: 2rem 1rem;
+  // margin-bottom: 2rem;
+  // border-radius: 0.3rem;
+
+  // background-color: rgb(33 33 33);
+}
+
+@media (min-width: 576px) {
+  .jumbotron {
+    padding: 4rem 2rem;
+  }
+}
+
+.jumbotron-fluid {
+  padding-right: 0;
+  padding-left: 0;
+  border-radius: 0;
+}
+
+.bg-primary {
+  background-color: #ca1251 !important;
+  border-color: #be0c49 !important;
+}
+
+.bg-danger {
+  background-color: #be0c49 !important;
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #e91e63;
+  border-color: #be0c49;
+}
+
+
+.containerCV {
+  height: 200px;
+  position: relative;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+button {
+  outline: none !important;
+}
+
+
+//EMU Inicio establece estilos para el menu de usuario y cuadrar icono del font awesome
+.menuIcon {
+  margin-left: 1px;
+  margin-right: 17px;
+  vertical-align: middle;
+}
+
+.fa-lg2 {
+  font-size: 1.7em;
+}
+
+//EMU Fin de modificacion
+
+
+.miArletChat.alert {
+  margin-bottom: 2px !important;
+}
+
+
+.separadorInput {
+  padding-top: 10px !important;
+}
+
+
+.imgRgUsuario {
+  background-image: url('/assets/img/registro/imgusuario.jpg');
+  // background-image: linear-gradient(215deg, rgb(0 0 0 / 0%), #000000), url('/assets/img/registro/imgusuario.jpg');
+}
+
+.imgRgModelo {
+  background-image: url('/assets/img/registro/modelo.jpg');
+  // background-image: linear-gradient(215deg, rgb(0 0 0 / 0%), #000000), url('/assets/img/registro/modelo.jpg');
+}
+
+.imgRgEstudio {
+  background-image: url('/assets/img/registro/estudio.jpg');
+  // background-image: linear-gradient(215deg, rgb(0 0 0 / 0%), #000000), url('/assets/img/registro/estudio.jpg');
+}
+
+.bg {
+  /* Full height */
+  width: 100%;
+  height: 250px;
+  // min-height: 70vh;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.animacion {
+  animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s;
+  /* Firefox */
+  -webkit-animation: fadein 1.5s;
+  /* Safari and Chrome */
+  -o-animation: fadein 1.5s;
+  /* Opera */
+}
+
+
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadein {
+
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+.btnTabla {
+  outline: none !important;
+  padding: 0px !important;
+  border: none !important;
+  background: none !important;
+}
+
+.icono_opciones {
+  width: 23px;
+  margin: 2px;
+}
+
+
+.alert-secondary {
+  background-color: #222222 !important;
+  border-color: #424242 !important;
+}

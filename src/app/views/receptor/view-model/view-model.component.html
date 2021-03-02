@@ -1,0 +1,45 @@
+<mat-card>
+  <mat-card-title></mat-card-title>
+  <mat-card-subtitle></mat-card-subtitle>
+
+  <mat-card-content>
+    <br>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="text-align: center;">
+        <img id="imagen" style="width: 90% !important; height: 370px;">
+
+        <!-- <video src="" id="miVideoid" #miVideo width="320" height="240" controls>
+        </video> -->
+
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" *ngIf="idSala != null">
+        <app-chat [idSala]="idSala" [uso]="'C'"></app-chat>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <p-carousel [value]="galeria" [numVisible]="4" [numScroll]="3" [autoplayInterval]="3000" [circular]="true"
+        [responsiveOptions]="responsiveOptions">
+        <ng-template let-item pTemplate="item">
+          <div class="product-item">
+            <div class="product-item-content">
+              <div class="p-mb-3">
+                <img src="{{item}}" class="product-image" />
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </p-carousel>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="row">
+      <div class="col-4">
+
+      </div>
+      <div class="col-8 text-right">
+
+      </div>
+    </div>
+  </mat-card-actions>
+</mat-card>
