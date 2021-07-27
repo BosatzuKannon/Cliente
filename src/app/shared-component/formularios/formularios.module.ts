@@ -1,5 +1,3 @@
-import { AngularMaterialModule } from '../../../admin-app/directives/angular-material.module';
-
 import { NgModule } from '@angular/core';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -11,7 +9,6 @@ import { FormLoginComponent } from './form-login/form-login.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularMaterialModule
   ],
   declarations: [
     FormLoginComponent
